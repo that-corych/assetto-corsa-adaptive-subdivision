@@ -1,20 +1,35 @@
--- Adaptive Subdivision Algorithm for Assetto Corsa
+-- Adaptive Subdivision using Assetto Corsa Lua API
 
--- Function to apply adaptive subdivision to a given mesh
-function adaptiveSubdivision(mesh)
-    -- Implementation of the core algorithm
-    local subdividedMesh = {}
-    -- Logic for adaptive subdivision based on curvature, distance, or other criteria
-    return subdividedMesh
+function adaptiveSubdivision(distanceThreshold, curvatureThreshold)
+    -- Set up variables for distance and curvature
+    local distanceToTrack = 0
+    local curvatureValue = 0
+
+    -- Function to check distance-based subdivision
+    local function distanceBasedSubdivision()
+        if distanceToTrack < distanceThreshold then
+            -- Implement logic for distance-based subdivision
+            -- Example logic: More subdivisions if closer to the track
+            return true
+        end
+        return false
+    end
+
+    -- Function to check curvature-based subdivision
+    local function curvatureBasedSubdivision()
+        if curvatureValue > curvatureThreshold then
+            -- Implement logic for curvature-based subdivision
+            -- Example logic: More subdivisions if track is curvy
+            return true
+        end
+        return false
+    end
+
+    -- Main subdivision logic
+    if distanceBasedSubdivision() or curvatureBasedSubdivision() then
+        -- Implement the drawing logic or any other logic needed for subdivision
+    end
 end
 
--- Function to integrate with Assetto Corsa
-function updateMeshInGame(mesh)
-    local newMesh = adaptiveSubdivision(mesh)
-    -- Code to update the in-game mesh
-end
-
-return {
-    adaptiveSubdivision = adaptiveSubdivision,
-    updateMeshInGame = updateMeshInGame
-}
+-- Example usage
+adaptiveSubdivision(5.0, 0.1)  -- Adjust thresholds as necessary
